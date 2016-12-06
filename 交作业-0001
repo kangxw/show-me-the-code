@@ -1,0 +1,20 @@
+# -*- coding: utf-8 -*-
+#第 0001 题：做为 Apple Store App 独立开发者，你要搞限时促销,为你的应用生成激活码（或者优惠券），使用 Python 如何生成 200 个激活码（或者优惠券）？
+import string
+import random
+
+length=10 #设置激活码长度
+num=200   #设置激活码数量
+strings=string.letters+string.digits #所有字母数字
+
+def keycerator(l):
+    key=''
+    for i in range(l):
+        key+=random.choice(strings)
+    return key
+
+keytabfile=open('keytab.txt','w')
+
+for j in range(num):
+	keytabfile.write(keycerator(length)+'\n')
+keytabfile.close()
